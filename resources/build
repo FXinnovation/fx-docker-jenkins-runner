@@ -1,0 +1,13 @@
+#!/bin/sh
+set -x -eo pipefail
+
+# Code
+
+###
+# CIS Hardening
+###
+
+chmod 0600 /etc/shadow
+
+touch /etc/login.defs
+chmod 0444 /etc/login.defs
