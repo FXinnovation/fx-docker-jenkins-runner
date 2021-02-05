@@ -16,7 +16,7 @@ ENTRYPOINT ["/app/bin/jenkinsfile-runner-launcher"]
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
       "org.label-schema.name"="jenkins-runner" \
-      "org.label-schema.base-image.name"="docker.io/library/docker" \
+      "org.label-schema.base-image.name"="jenkins/jenkinsfile-runner:1.1-beta-0-adoptopenjdk-11-jre-alpine" \
       "org.label-schema.base-image.version"="1.1-beta-0-adoptopenjdk-11-jre-alpine" \
       "org.label-schema.description"="Jenkins headless in a container" \
       "org.label-schema.url"="https://github.com/jenkinsci/jenkinsfile-runner" \
