@@ -1,7 +1,146 @@
 #!/bin/sh
 set -x -eo pipefail
 
-# Code
+###
+# Dependencies
+###
+
+apk add --update --no-cache \
+  bash=${BASH_VERSION} \
+  bzip2=${BZIP2_VERSION} \
+  curl=${CURL_VERSION} \
+  e2fsprogs=${E2FSPROGS_VERSION} \
+  git=${GIT_VERSION} \
+  groff=${GROFF_VERSION} \
+  iptables=${IPTABLES_VERSION} \
+  jq=${JQ_VERSION} \
+  mercurial=${MERCURIAL_VERSION} \
+  openssh-client \
+  procps=${PROCPS_VERSION} \
+  py3-pip=${PY3PIP_VERSION} \
+  python3=${PYTHON_VERSION} \
+  subversion=${SUBVERSION_VERSION} \
+  unzip=${UNZIP_VERSION} \
+  wget=${WGET_VERSION} \
+  xz=${XZ_VERSION} \
+  zip=${ZIP_VERSION}
+
+###
+# Installing AWS CLI
+###
+
+pip install awscli==${AWSCLI_VERSION}
+
+###
+# Installing Google Cloud SDK
+###
+
+cd /resources
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUDSDK_VERSION}-linux-x86_64.tar.gz
+tar -xzf /resources/google-cloud-sdk-${GCLOUDSDK_VERSION}-linux-x86_64.tar.gz
+mkdir /opt || true
+mv google-cloud-sdk /opt/google-cloud-sdk
+/opt/google-cloud-sdk/install.sh
+
+###
+# Jenkins plugins
+###
+
+java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-version 2.263.4 --plugins \
+  ace-editor \
+  ansicolor \
+  ant \
+  antisamy-markup-formatter \
+  apache-httpcomponents-client-4-api \
+  authentication-tokens \
+  authorize-project \
+  aws-credentials \
+  aws-java-sdk \
+  bootstrap4-api \
+  bouncycastle-api \
+  branch-api \
+  build-timeout:1.13 \
+  checks-api \
+  configuration-as-code \
+  cloudbees-disk-usage-simple \
+  cloudbees-folder \
+  command-launcher \
+  credentials \
+  credentials-binding \
+  display-url-api \
+  durable-task \
+  echarts-api \
+  email-ext:2.78 \
+  extended-read-permission \
+  filesystem_scm \
+  folder-auth \
+  font-awesome-api \
+  git \
+  git-client \
+  gitea \
+  github \
+  github-api \
+  github-branch-source \
+  git-server \
+  gradle \
+  handlebars \
+  handy-uri-templates-2-api \
+  jackson2-api \
+  jdk-tool \
+  jquery3-api \
+  jquery-detached \
+  jsch \
+  junit \
+  kubernetes \
+  kubernetes-client-api \
+  kubernetes-credentials \
+  ldap \
+  lockable-resources \
+  mailer \
+  mapdb-api \
+  matrix-auth \
+  matrix-project \
+  metrics \
+  momentjs \
+  nexus-jenkins-plugin \
+  Office-365-Connector \
+  okhttp-api \
+  pam-auth \
+  permissive-script-security \
+  pipeline-aws \
+  pipeline-build-step \
+  pipeline-github-lib \
+  pipeline-graph-analysis \
+  pipeline-input-step \
+  pipeline-milestone-step \
+  pipeline-model-api \
+  pipeline-model-definition \
+  pipeline-model-extensions \
+  pipeline-rest-api \
+  pipeline-stage-step \
+  pipeline-stage-tags-metadata \
+  pipeline-stage-view \
+  pipeline-utility-steps \
+  plain-credentials \
+  plugin-util-api \
+  popper-api \
+  prometheus \
+  resource-disposer \
+  role-strategy \
+  saml \
+  scm-api \
+  script-security \
+  snakeyaml-api \
+  ssh-agent \
+  ssh-credentials \
+  ssh-slaves \
+  structs \
+  subversion \
+  timestamper \
+  token-macro \
+  trilead-api \
+  variant \
+  ws-cleanup
 
 ###
 # CIS Hardening
