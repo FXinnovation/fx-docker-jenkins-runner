@@ -9,13 +9,14 @@ apk add --update --no-cache \
   bash=${BASH_VERSION} \
   bzip2=${BZIP2_VERSION} \
   curl=${CURL_VERSION} \
+  docker=${DOCKER_VERSION} \
   e2fsprogs=${E2FSPROGS_VERSION} \
   git=${GIT_VERSION} \
   groff=${GROFF_VERSION} \
   iptables=${IPTABLES_VERSION} \
   jq=${JQ_VERSION} \
   mercurial=${MERCURIAL_VERSION} \
-  openssh-client \
+  openssh-client=${OPENSSH_VERSION} \
   procps=${PROCPS_VERSION} \
   py3-pip=${PY3PIP_VERSION} \
   python3=${PYTHON_VERSION} \
@@ -140,6 +141,7 @@ java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-versi
   token-macro \
   trilead-api \
   variant \
+  workflow-scm-step \
   ws-cleanup
 
 ###
