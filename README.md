@@ -14,7 +14,8 @@ See [Usage](#Usage)
 
 ## How it works
 Jenkins itself as well as all plugins used by FX are installed in this docker image.
-As a consequence, this image is very similar to [FX own Jenkins slave image](https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-public/docker-jenkinsk8sslave)
+As a consequence, this image is very similar to [FX own Jenkins slave image](https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-public/docker-jenkinsk8sslave).
+
 Because there is no full Jenkins running in the background but just the core, Jenkins credentials or pipeline libraries does not work out of the box.
 To circumvent the issue, configuration must be done with a configuration file.
 It is possible using the [Configuration As Code](https://plugins.jenkins.io/configuration-as-code/) module to handle credentials and pipeline libraries, which is installed by default in this docker.
@@ -24,11 +25,22 @@ We push a `latest` tag on this repository, to run an older version please checko
 
 ## Usage
 
-1. Setup a gitea token (Configuration > Applications > Manage tokens);
-1. Update credentials in your configuration file;
-1. Change directory to the code you want to test;
-1. Copy `resource/jenkins.yaml` to a local path (e.g. ~/.config/jenkins_runner/configuration). Careful, might contain passwords, so protect the file!;
+1. Setup a gitea token (on gitea: Configuration > Applications > Manage tokens);
+1. Copy `resource/jenkins.yaml` to a local path (e.g. `~/.config/jenkins_runner/configuration`). **Careful**, the file is likely to contain passwords, so protect it!;
+
+```
+    $ mkdir -p ~/.config/jenkins_runner/configuration
+    $ cp resource/jenkins.yaml ~/.config/jenkins_runner/configuration
+    $ chmod 600 ~/.config/jenkins_runner/configuration/jenkins.yaml
+```
+
 1. Populate the passwords you need for your pipeline in the `~/.config/jenkins_runner/configuration/jenkins.yaml` file. If the following docker command fails with 'password does not exists', you need to add it in the confiugration file.
+1. Change your directory to the code you want to test;
+
+```
+   $ cd ~/Code/fxinnovation-public/my-source-code
+```
+
 1. Run:
 
 ```
