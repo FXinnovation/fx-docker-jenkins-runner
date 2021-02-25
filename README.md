@@ -17,7 +17,7 @@ Jenkins itself as well as all plugins used by FX are installed in this docker im
 As a consequence, this image is very similar to [FX own Jenkins slave image](https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-public/docker-jenkinsk8sslave)
 Because there is no full Jenkins running in the background but just the core, Jenkins credentials or pipeline libraries does not work out of the box.
 To circumvent the issue, configuration must be done with a configuration file.
-It is possible using the [Configuration As Code](https://plugins.jenkins.io/configuration-as-code/) module to handle credentials and pipeline libraries.
+It is possible using the [Configuration As Code](https://plugins.jenkins.io/configuration-as-code/) module to handle credentials and pipeline libraries, which is installed by default in this docker.
 
 ## Tags
 We push a `latest` tag on this repository, to run an older version please checkout the different tags.
