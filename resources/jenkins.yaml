@@ -1,0 +1,44 @@
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - UsernamePasswordCredentialsImpl:
+              scope: GLOBAL
+              id: gitea-admin
+              username: guillaume.donval
+              password: 12345THISISNOTAREALTOKEN101112ABCDEFGH
+          - UsernamePasswordCredentialsImpl:
+              scope: GLOBAL
+              id: example
+              username: dummy_sample_user
+              password: dummy_sample_password
+
+
+unclassified:
+  globalLibraries:
+    libraries:
+      - defaultVersion: "master"
+        implicit: true
+        name: "fxinnovation-private-pipeline-jenkins"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                credentialsId: "gitea-admin"
+                remote: "https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-private/pipeline-jenkins.git"
+                traits:
+                  - "gitBranchDiscovery"
+      - defaultVersion: "master"
+        implicit: true
+        name: "fxinnovation-public-pipeline-jenkins"
+        retriever:
+          modernSCM:
+            scm:
+              gitea:
+                credentialsId: "gitea-admin"
+                repoOwner: "fxinnovation-public"
+                repository: "pipeline-jenkins"
+                serverUrl: "https://scm.dazzlingwrench.fxinnovation.com"
+                traits:
+                  - branchDiscoveryTrait:
+                      strategyId: 3

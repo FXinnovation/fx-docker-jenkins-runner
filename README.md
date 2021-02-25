@@ -28,6 +28,7 @@ We push a `latest` tag on this repository, to run an older version please checko
 1. Update credentials in your configuration file;
 1. Change directory to the code you want to test;
 1. Copy `resource/jenkins.yaml` to a local path (e.g. ~/.config/jenkins_runner/configuration). Careful, might contain passwords, so protect the file!;
+1. Populate the passwords you need for your pipeline in the `~/.config/jenkins_runner/configuration/jenkins.yaml` file. If the following docker command fails with 'password does not exists', you need to add it in the confiugration file.
 1. Run:
 
 ```

@@ -31,14 +31,15 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 
-VOLUME /data
 VOLUME /workspace
 
 ADD ./resources /resources
 
 RUN /resources/build && rm -rf /resources
 
-WORKDIR /data
+COPY /resources/jenkins.yaml /usr/share/jenkins/ref/casc/jenkins.yaml
+
+WORKDIR /workspace
 
 ENTRYPOINT ["/app/bin/jenkinsfile-runner-launcher"]
 
