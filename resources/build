@@ -104,6 +104,7 @@ java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-versi
   metrics \
   momentjs \
   nexus-jenkins-plugin \
+  nunit \
   Office-365-Connector \
   okhttp-api \
   pam-auth \
@@ -140,6 +141,7 @@ java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-versi
   timestamper \
   token-macro \
   trilead-api \
+  uno-choice \
   variant \
   workflow-scm-step \
   ws-cleanup
