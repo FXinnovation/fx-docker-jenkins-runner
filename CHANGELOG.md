@@ -1,3 +1,8 @@
+0.2.0
+=====
+
+* feat: passes Jenkins version as env var
+
 0.1.0
 =====
 

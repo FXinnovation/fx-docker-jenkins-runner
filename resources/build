@@ -47,7 +47,7 @@ mv google-cloud-sdk /opt/google-cloud-sdk
 # Jenkins plugins
 ###
 
-java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-version 2.263.4 --plugins \
+java -jar /app/bin/jenkins-plugin-manager.jar --latest-specified --jenkins-version ${JENKINS_VERSION} --plugins \
   ace-editor \
   ansicolor \
   ant \
