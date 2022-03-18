@@ -25,7 +25,7 @@ unclassified:
             scm:
               git:
                 credentialsId: "gitea-admin"
-                remote: "https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-private/pipeline-jenkins.git"
+                remote: "https://github.com/FXinnovation/fx-pipeline-jenkins-private.git"
                 traits:
                   - "gitBranchDiscovery"
       - defaultVersion: "master"
@@ -38,7 +38,7 @@ unclassified:
                 credentialsId: "gitea-admin"
                 repoOwner: "fxinnovation-public"
                 repository: "pipeline-jenkins"
-                serverUrl: "https://scm.dazzlingwrench.fxinnovation.com"
+                serverUrl: "https://github.com/FXinnovation/"
                 traits:
                   - branchDiscoveryTrait:
                       strategyId: 3
